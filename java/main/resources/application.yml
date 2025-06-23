@@ -1,0 +1,41 @@
+application:
+  plans:
+    - planType: student
+      interestRate: 0.03
+      interestFreeDays: 30
+      interestEnds: true
+      interestEndsAfterDays: 365
+    - planType: premium
+      interestRate: 0.05
+      interestFreeDays: 45
+      interestEnds: false
+    - planType: basic
+      interestRate: 0.01
+      interestFreeDays: 30
+      interestEnds: false
+
+spring:
+  application:
+    name: XA Time Deposits
+  datasource:
+    url: jdbc:h2:mem:xatimedepositassmentdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  servlet:
+    context-path: /api/v1/xa-time-deposits
+
+logging:
+  level:
+    root: INFO
+    org.ikigaidigital: DEBUG
